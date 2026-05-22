@@ -1,9 +1,9 @@
-class Series{
-    constructor(id, url, name, languaje, generes, image){
+class Serie{
+    constructor(id, url, name, language, generes, image){
         this.id = id;
         this.url = url;
         this.name = name;
-        this.languaje = languaje;
+        this.language  = language;
         this.generes = generes;
         this.image = image;
     }
