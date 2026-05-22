@@ -40,12 +40,47 @@ class Serie{
         const img = document.createElement('img');
         img.src = this.image;
         img.alt = this.name;
+        
+        img.addEventListener('click', () => {
+            window.open(this.url, '_blank');
+        });
+
+        const btnGuardar = document.createElement('button');
+            btnGuardar.textContent = 'guardar';
+            btnGuardar.addEventListener('click', () => {
+                Serie.guardarSerie(this);
+        });
 
         div.appendChild(name);
         div.appendChild(language);
         div.appendChild(generes);
         div.appendChild(img);
+        div.appendChild(btnGuardar);
 
         return div;
+    
+    }
+
+    static guardarSerie(serie) {
+        const raw = localStorage.getItem('series_guardadas');
+        const guardadas = raw ? JSON.parse(raw) : [];
+
+        const existe = guardadas.some(s => s.id === serie.id);
+        if (existe) {
+            alert('Esta serie ya fue guardada.');
+            return;
+        }
+
+        guardadas.push({
+            id: serie.id,
+            url: serie.url,
+            name: serie.name,
+            language: serie.language,
+            generes: serie.generes,
+            image: serie.image
+        });
+
+        localStorage.setItem('series_guardadas', JSON.stringify(guardadas));
+        alert('Serie guardada.');
     }
 }
