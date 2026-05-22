@@ -65,21 +65,17 @@ class Serie{
         const raw = localStorage.getItem('series_guardadas');
         const guardadas = raw ? JSON.parse(raw) : [];
 
-        const existe = guardadas.some(s => s.id === serie.id);
+        const existe = guardadas.some(s => {
+            const serieObj = JSON.parse(s);
+            return serieObj.id === serie.id;
+        });
+
         if (existe) {
             alert('Esta serie ya fue guardada.');
             return;
         }
 
-        guardadas.push({
-            id: serie.id,
-            url: serie.url,
-            name: serie.name,
-            language: serie.language,
-            generes: serie.generes,
-            image: serie.image
-        });
-
+        guardadas.push(serie.toJsonString());
         localStorage.setItem('series_guardadas', JSON.stringify(guardadas));
         alert('Serie guardada.');
     }
