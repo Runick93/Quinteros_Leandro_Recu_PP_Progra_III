@@ -1,3 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
 main {
     display: grid;
     grid-template-columns: 200px 1fr;
@@ -8,22 +14,107 @@ main {
 header {
     grid-column: 1 / 3;
     grid-row: 1;
+    background-color: #1a1a2e;
+    color: white;
+    padding: 16px 24px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+header h3 {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.8;
 }
 
 nav {
     grid-column: 1;
     grid-row: 2;
+    background-color: #16213e;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
 }
 
 #principal {
     grid-column: 2;
     grid-row: 2;
+    padding: 24px;
 }
 
 #series {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
+    margin-bottom: 20px;
+}
+
+
+
+.serie {
+    background-color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.serie h3 {
+    font-size: 1rem;
+    color: #1a1a2e;
+}
+
+.serie img {
+    width: 100%;
+    max-width: 210px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.serie p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+#anterior,
+#siguiente {
+    background-color: #1a1a2e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-right: 8px;
+}
+
+.btn-guardar {
+    background-color: #0f3460;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 4px;
 }
 
 @media (max-width: 900px) {
@@ -35,5 +126,25 @@ nav {
 @media (max-width: 550px) {
     #series {
         grid-template-columns: 1fr;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        grid-column: 1;
+    }
+
+    nav {
+        grid-column: 1;
+        grid-row: 2;
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    #principal {
+        grid-column: 1;
+        grid-row: 3;
     }
 }

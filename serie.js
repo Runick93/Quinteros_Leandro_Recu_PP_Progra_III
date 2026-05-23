@@ -46,9 +46,10 @@ class Serie{
         });
 
         const btnGuardar = document.createElement('button');
-            btnGuardar.textContent = 'guardar';
-            btnGuardar.addEventListener('click', () => {
-                Serie.guardarSerie(this);
+        btnGuardar.textContent = 'guardar';
+        btnGuardar.className = 'btn-guardar';
+        btnGuardar.addEventListener('click', () => {
+            Serie.guardarSerie(this);
         });
 
         div.appendChild(name);

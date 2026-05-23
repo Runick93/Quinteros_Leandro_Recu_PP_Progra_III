@@ -38,3 +38,5 @@ function cargarSeriesGuardadas() {
 document.addEventListener('DOMContentLoaded', () => {
     cargarSeriesGuardadas();
 });
+
+
